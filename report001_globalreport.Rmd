@@ -1,0 +1,53 @@
+---
+title: "Report-001: MTB Survey Global Report"
+author: "`r Sys.getenv('USER')`"
+date: "`r strftime(Sys.time(),format='%F %T %Z')`"
+output: 
+  html_document: 
+    theme: cosmo
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Molecular Tumor Board Survey
+
+## Total Responders
+
+There were __`r dim(mydata)[1]`__ completed surveys
+
+```{r insttype}
+mytable <- data.frame(table(mydata$gen_insttypeasfactor))
+# mytable <- cbind( sum(mytable), mytable)
+colnames(mytable) <- c('Institution Type','Frequency')
+knitr::kable(mytable,caption = '')
+```
+
+```{r insttypeother}
+mytable <- mydata$gen_insttype_other[mydata$gen_insttype==4]
+knitr::kable(mytable,caption = 'Other Institution Types')
+```
+
+<br />
+
+```{r submitterrole}
+mytable <- data.frame(table(mydata$submitter_roleasfactor))
+colnames(mytable) <- c("Submitter's Role","Frequency")
+knitr::kable(mytable,caption = '')
+```
+
+```{r submitterroleother}
+mytable <- mydata$submitter_role_oth[mydata$submitter_role==99]
+knitr::kable(mytable,caption = 'Other Submitter Role')
+```
+
+## NGS Utilization
+
+```{r usengs}
+mytable <- data.frame(table(mydata$b2asfactor))
+colnames(mytable) <- c('Do you use NGS testing for molecular profiling of advanced solid tumors, recommended by NCCN?','Frequency')
+knitr::kable(mytable,caption = 'NGS Use')
+```
+
+For the `r sum(mydata$b2 == 0)` responders who do not use NGS.
