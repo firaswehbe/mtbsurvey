@@ -25,11 +25,12 @@ knitr::kable(mytable,caption = '')
 ```
 
 ```{r insttypeother}
-mytable <- mydata$gen_insttype_other[mydata$gen_insttype==4]
-knitr::kable(mytable,caption = 'Other Institution Types')
+mytable <- data.frame(mydata$gen_insttype_other[mydata$gen_insttype==4])
+colnames(mytable) <- c('Institution Type (Other)')
+knitr::kable(mytable,caption = '')
 ```
 
-<br />
+<p style="page-break-before: always" />
 
 ```{r submitterrole}
 mytable <- data.frame(table(mydata$submitter_roleasfactor))
@@ -38,9 +39,12 @@ knitr::kable(mytable,caption = '')
 ```
 
 ```{r submitterroleother}
-mytable <- mydata$submitter_role_oth[mydata$submitter_role==99]
-knitr::kable(mytable,caption = 'Other Submitter Role')
+mytable <- data.frame(mydata$submitter_role_oth[mydata$submitter_role==99 & mydata$submitter_role_oth != ''])
+colnames(mytable) <- c("Submitter's Role (Other)")
+knitr::kable(mytable,caption = '')
 ```
+
+<p style="page-break-before: always" />
 
 ## NGS Utilization
 
