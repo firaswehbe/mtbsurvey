@@ -50,4 +50,3 @@ colnames(mytable) <- c('Do you use NGS testing for molecular profiling of advanc
 knitr::kable(mytable,caption = 'NGS Use')
 ```
 
-For the `r sum(mydata$b2 == 0)` responders who do not use NGS.
