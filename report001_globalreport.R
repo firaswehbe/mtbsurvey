@@ -18,6 +18,13 @@ mydata<- mydata[mydata$survey_complete==2,]
 mydata$gen_insttypeasfactor <- makeColAsRCFactor('gen_insttype') # Institution Type - factor
 mydata$b2asfactor <- factor(mydata$b2,levels = c(0,1),ordered = TRUE,labels = c("No","Yes")) # Use NGS - 1,0 => factor
 mydata$submitter_roleasfactor <- makeColAsRCFactor('submitter_role') # Submitter Role - factor
+mydata$x1asfactor <- makeColAsRCFactor('x1') # X1 - factor
+mydata$x2asfactor <- makeColAsRCFactor('x2') # X2 - factor
+mydata$x3asfactor <- makeColAsRCFactor('x3') # X3 - factor
+mydata$x4asfactor <- factor(mydata$x4,levels = c(0,1),ordered = TRUE,labels = c("No","Yes")) # X4 - factor
+mydata$y1asfactor <- factor(mydata$y1,levels = c(0,1),ordered = TRUE,labels = c("No","Yes")) # Y1 - factor
+mydata$y2asfactor <- makeColAsRCFactor('y2') # Y2 - factor
+
 # mydata$dobasPOSIXct <- makeColAsPOSIXct('dob') # Data of Birth - POSIXct
 # mydata$yobasinteger <- as.integer(strftime(mydata$dobasPOSIXct,format = '%Y')) # Year of Birth - integer
 

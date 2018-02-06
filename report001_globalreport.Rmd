@@ -54,3 +54,44 @@ colnames(mytable) <- c('Do you use NGS testing for molecular profiling of advanc
 knitr::kable(mytable,caption = 'NGS Use')
 ```
 
+<p style="page-break-before: always" />
+
+### Sites That Do Not Use NGS Testing for Molecular Profiling of Advanced Solid Tumors (`r sum(mydata$b2==0)`)
+
+```{r x1}
+mytable <- data.frame(table(mydata$x1asfactor))
+colnames(mytable) <- c(mymetadata$field_label[mymetadata$field_name=='x1'],'Freq')
+knitr::kable(mytable,caption = '')
+```
+
+```{r x2}
+mytable <- data.frame(table(mydata$x2asfactor))
+colnames(mytable) <- c(mymetadata$field_label[mymetadata$field_name=='x2'],'Freq')
+knitr::kable(mytable,caption = '')
+```
+
+```{r x3}
+mytable <- data.frame(table(mydata$x3asfactor))
+colnames(mytable) <- c(mymetadata$field_label[mymetadata$field_name=='x3'],'Freq')
+knitr::kable(mytable,caption = '')
+```
+
+```{r x4}
+mytable <- data.frame(table(mydata$x4asfactor))
+colnames(mytable) <- c(mymetadata$field_label[mymetadata$field_name=='x4'],'Freq')
+knitr::kable(mytable,caption = '')
+```
+
+```{r y1}
+mytable <- data.frame(table(mydata$y1asfactor[mydata$b2==0]))
+colnames(mytable) <- c(mymetadata$field_label[mymetadata$field_name=='y1'],'Freq')
+knitr::kable(mytable,caption = '')
+```
+
+```{r y2}
+mytable <- data.frame(table(mydata$y2asfactor[mydata$b2==0]))
+colnames(mytable) <- c(mymetadata$field_label[mymetadata$field_name=='y2'],'Freq')
+knitr::kable(mytable,caption = '')
+```
+
+<p style="page-break-before: always" />
